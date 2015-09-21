@@ -1,0 +1,96 @@
+---
+title       : Making Ocean Pollution Data Accessible to the Public
+subtitle    : Class Project for Building Data Products, Coursera, Johns Hopkins University
+author      : Megan Minshew
+job         : Data Scientist
+framework   : io2012       # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Ocean Carbon Dioxide: Study Summary
+
+
+
+An environmental of particular interested in is the health of the oceans and how pollution and carbon levels will impact it's species. 
+
+Elizabeth Kolbert's book [The Sixth Extinction: An Unnatural History] (http://us.macmillan.com/thesixthextinction-1/elizabethkolbert) provides a well researched account of the impact of carbon to species with calcium based exoskeletons in Chapter 6, The Sea Around Us. 
+
+Tasked with presenting a data product, I found public data availble from the [CDIAC: Carbon Dioxide Information Analysis Center}(http://cdiac.ornl.gov). I chose to use data collected from a single monitoring site to minimize the quatity of data for this presentation. 
+ 
+
+An interactive tool is available to compare and contrast the data collected:
+
+[Ocean Carbon Dioxide Measurements by Date](https://meganminshew.shinyapps.io/BDP_Project)
+
+---
+
+## Ocean Carbon Dioxide: The data collected
+
+
+[Ocean Carbon Dioxide Measurements by Date](https://meganminshew.shinyapps.io/BDP_Project) provides the user with two lists of data elements that are combined into a box plot. Here is an example of Air Temperature (degrees celsius) compared with CO2 Levels in the ocean after atmospheric CO2 is removed.
+
+```{r, echo=FALSE, warning=FALSE}
+#using libraries:
+library(shiny) 
+library(dplyr)
+
+#load the sample measurement data -- using one mooring, one year
+h2o <- read.csv("CCE2_121W_34N_Mar2012_Mar2013.csv")
+
+#clean up the column names
+colnames(h2o)[1] <- 'Mooring'
+colnames(h2o)[6] <- 'CO2_Ocean_Wet'
+colnames(h2o)[7] <- 'CO2_Ocean_dataquality'
+colnames(h2o)[8] <- 'H2O_Ocean'
+colnames(h2o)[9] <- 'CO2_Air_Wet'
+colnames(h2o)[10] <- 'CO2_Air_dataquality'
+colnames(h2o)[11] <- 'H2O_Air'
+colnames(h2o)[12] <- 'Atmospheric_Pressure'
+colnames(h2o)[13] <- 'Air_Temperature'
+colnames(h2o)[14] <- 'Oxygen_Pct'
+colnames(h2o)[15] <- 'Sea_Surface_Temperature'
+colnames(h2o)[16] <- 'Sea_Surface_Salinity'
+colnames(h2o)[17] <- 'CO2_Ocean_Dry'
+colnames(h2o)[18] <- 'CO2_Air_Dry'
+colnames(h2o)[19] <- 'CO2_Ocean'
+colnames(h2o)[20] <- 'CO2_Air'
+colnames(h2o)[21] <- 'CO2_Ocean_Minus_CO2_Air'
+#make date into a date
+h2o$Date <- as.Date(h2o$Date, format = "%m/%d/%y")
+
+#drop the columns that aren't needed
+h2o <- subset(h2o, select=c(4,6:21))
+boxplot(Air_Temperature~CO2_Ocean_Minus_CO2_Air, data = h2o, labels=row.names, col="red")
+```
+
+---
+
+## Ocean Carbon Dioxide: Special features
+
+To better understand the change of a measure over time the application includes each of the chosen measures in its own time series box plot. You can monitor CO2 Levels over time with this functionality.
+
+```{r, echo=FALSE}
+boxplot(CO2_Ocean_Wet~Date, data = h2o, labels=row.names, col="blue")
+```
+
+As the data is collected over multiple intervals during each day, the user has the option to take the daily average instead of each data point. 
+
+To provide additional usefullness, the user may also remove outliers in the data.
+
+---
+
+## Ocean Carbon Dioxide: Source Citations
+
+This project would not be possible without the contributions of:
+
+Sutton, A., C. Sabine, S. Maenner, S. Musielewicz, R. Bott, and J. Osborne. 2013. 
+High-resolution ocean and atmosphere pCO2 time-series measurements from 
+mooring CCE2_121W_34N. http://cdiac.esd.ornl.gov/ftp/oceans/Moorings/CCE2_121W_34N/. 
+Carbon Dioxide Information Analysis Center, Oak Ridge National Laboratory, US 
+Department of Energy, Oak Ridge, Tennessee. doi: 10.3334/CDIAC/OTG.TSM_CCE2_121W_34N
+
+The specific data in use in this study is publicly available and can be downloaded here: [CCE2_121W_34N_Mar2012_Mar2013.csv](http://cdiac.ornl.gov/ftp/oceans/Moorings/CCE2_121W_34N/CCE2_121W_34N_Mar2012_Mar2013.csv)

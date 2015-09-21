@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Making Ocean Pollution Data Accessible to the Public</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Making Ocean Pollution Data Accessible to the Public">
+  <meta name="author" content="Megan Minshew">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Making Ocean Pollution Data Accessible to the Public</h1>
+    <h2>Class Project for Building Data Products, Coursera, Johns Hopkins University</h2>
+    <p>Megan Minshew<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Ocean Carbon Dioxide: Study Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>An environmental of particular interested in is the health of the oceans and how pollution and carbon levels will impact it&#39;s species. </p>
+
+<p>Elizabeth Kolbert&#39;s book <a href="http://us.macmillan.com/thesixthextinction-1/elizabethkolbert">The Sixth Extinction: An Unnatural History</a> provides a well researched account of the impact of carbon to species with calcium based exoskeletons in Chapter 6, The Sea Around Us. </p>
+
+<p>Tasked with presenting a data product, I found public data availble from the [CDIAC: Carbon Dioxide Information Analysis Center}(<a href="http://cdiac.ornl.gov">http://cdiac.ornl.gov</a>). I chose to use data collected from a single monitoring site to minimize the quatity of data for this presentation. </p>
+
+<p>An interactive tool is available to compare and contrast the data collected:</p>
+
+<p><a href="https://meganminshew.shinyapps.io/BDP_Project">Ocean Carbon Dioxide Measurements by Date</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Ocean Carbon Dioxide: The data collected</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="https://meganminshew.shinyapps.io/BDP_Project">Ocean Carbon Dioxide Measurements by Date</a> provides the user with two lists of data elements that are combined into a box plot. Here is an example of Air Temperature (degrees celsius) compared with CO2 Levels in the ocean after atmospheric CO2 is removed.</p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Ocean Carbon Dioxide: Special features</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To better understand the change of a measure over time the application includes each of the chosen measures in its own time series box plot. You can monitor CO2 Levels over time with this functionality.</p>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+<p>As the data is collected over multiple intervals during each day, the user has the option to take the daily average instead of each data point. </p>
+
+<p>To provide additional usefullness, the user may also remove outliers in the data.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Ocean Carbon Dioxide: Source Citations</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This project would not be possible without the contributions of:</p>
+
+<p>Sutton, A., C. Sabine, S. Maenner, S. Musielewicz, R. Bott, and J. Osborne. 2013. 
+High-resolution ocean and atmosphere pCO2 time-series measurements from 
+mooring CCE2_121W_34N. <a href="http://cdiac.esd.ornl.gov/ftp/oceans/Moorings/CCE2_121W_34N/">http://cdiac.esd.ornl.gov/ftp/oceans/Moorings/CCE2_121W_34N/</a>. 
+Carbon Dioxide Information Analysis Center, Oak Ridge National Laboratory, US 
+Department of Energy, Oak Ridge, Tennessee. doi: 10.3334/CDIAC/OTG.TSM_CCE2_121W_34N</p>
+
+<p>The specific data in use in this study is publicly available and can be downloaded here: <a href="http://cdiac.ornl.gov/ftp/oceans/Moorings/CCE2_121W_34N/CCE2_121W_34N_Mar2012_Mar2013.csv">CCE2_121W_34N_Mar2012_Mar2013.csv</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Ocean Carbon Dioxide: Study Summary'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Ocean Carbon Dioxide: The data collected'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Ocean Carbon Dioxide: Special features'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Ocean Carbon Dioxide: Source Citations'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
